@@ -46,3 +46,30 @@ Results:
 ![P1](https://github.com/DaisyDurand/Secure-Web-Design-Implementation/assets/147094227/430a80b2-f4d2-46ed-a256-177c31b70e29)
 ![P1](https://github.com/DaisyDurand/Secure-Web-Design-Implementation/assets/147094227/a19b5f1f-6da9-43ae-ac91-228add0c20fd)
 ![P1](https://github.com/DaisyDurand/Secure-Web-Design-Implementation/assets/147094227/1b3429a0-010f-474b-8f51-cd54f56e6ed1)
+### Part 4 - Create a Key Vault
+**Note**: Selected a free Azure domain. Azure provided a trusted certificate for the domain.
+1. Select "Key vaults" from the Azure search field.
+2. Created a key vault:
+   *Subscription/Resource Group: same subscription and resource groups
+   *Key Vault Name: project1-KeyVault
+   *Region:
+   *Pricing: Standard
+3. Click next to the Access Configuration Tab
+   *Vault Access Policy
+   *Select the box next to username
+4. Key vault has been created
+### Part 5 - Create a Self-Signed Certificate
+Created a self-signed certificate using OpenSSL
+1. `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout project1-key.key -out project1-cert.crt -addext "extendedKeyUsage=serverAuth"`  
+
+   This tells OpenSSL to create an SSL certificate using the sha256 hashing algorithm. The certificate will be valid for one year and uses a 2048-bit RSA key. The outputted name of the private key is project1-key.key and the certificate is project1-cert.crt. The certificate is intended for server authentication. This extenstion of the self-signed certificate ensures aht the certificate can be sued by servers to prove their authencticity when clients connect to them.
+
+3. Certificate information:
+   *Country Name (2 letterccode) [AU]: CA
+   *State or Province Name (full name) [Some State]: Ontario
+   *Locality Name (e.g., city) []: Toronto
+   *Organization Name (e.g., company) [Internet Widgits Pty Ltd]: Student
+   *Organizational Unit Name (e.g., section) []: -
+   *Common Name (e.g., server FQDN or YOUR name) []:cyberpulseperspectives.azurewebsites.net
+   *Email Address []: -
+5. The key and certificate have been created. Azure requires a PFX format for its certificates. This format is the combination of the server certificate and the private key in a single encrypted file.
