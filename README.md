@@ -50,13 +50,13 @@ Results:
 **Note**: Selected a free Azure domain. Azure provided a trusted certificate for the domain.
 1. Select "Key vaults" from the Azure search field.
 2. Created a key vault:
-   *Subscription/Resource Group: same subscription and resource groups
-   *Key Vault Name: project1-KeyVault
-   *Region:
-   *Pricing: Standard
+   * Subscription/Resource Group: same subscription and resource groups
+   * Key Vault Name: project1-KeyVault
+   * Region:
+   * Pricing: Standard
 3. Click next to the Access Configuration Tab
-   *Vault Access Policy
-   *Select the box next to username
+   * Vault Access Policy
+   * Select the box next to username
 4. Key vault has been created
 ### Part 5 - Create a Self-Signed Certificate
 Created a self-signed certificate using OpenSSL
@@ -64,12 +64,20 @@ Created a self-signed certificate using OpenSSL
 
    This tells OpenSSL to create an SSL certificate using the sha256 hashing algorithm. The certificate will be valid for one year and uses a 2048-bit RSA key. The outputted name of the private key is project1-key.key and the certificate is project1-cert.crt. The certificate is intended for server authentication. This extenstion of the self-signed certificate ensures aht the certificate can be sued by servers to prove their authencticity when clients connect to them.
 
-3. Certificate information:
-   *Country Name (2 letterccode) [AU]: CA
-   *State or Province Name (full name) [Some State]: Ontario
-   *Locality Name (e.g., city) []: Toronto
-   *Organization Name (e.g., company) [Internet Widgits Pty Ltd]: Student
-   *Organizational Unit Name (e.g., section) []: -
-   *Common Name (e.g., server FQDN or YOUR name) []:cyberpulseperspectives.azurewebsites.net
-   *Email Address []: -
+3. Certificate information:  
+   * Country Name (2 letterccode) [AU]: CA
+   * State or Province Name (full name) [Some State]: Ontario
+   * Locality Name (e.g., city) []: Toronto
+   * Organization Name (e.g., company) [Internet Widgits Pty Ltd]: Student
+   * Organizational Unit Name (e.g., section) []: -
+   * Common Name (e.g., server FQDN or YOUR name) []:cyberpulseperspectives.azurewebsites.net
+   * Email Address []: -
 5. The key and certificate have been created. Azure requires a PFX format for its certificates. This format is the combination of the server certificate and the private key in a single encrypted file.
+6. `openssl pkcs12 -export -out project1-cert.pfx -inkey project1-key.key -in project1-cert.crt`
+7. This indicates for OpenSSL to create a PFX certificate. The name of the PFX file is "project1-cert.pfx". The current private key that is being imported is "project1-ky.key" and the certificate being imported is "project1-cert.crt".
+8. The pfx file was downloaded and uploaded to the key vault on Azure. On the "Create a certificate" page select:
+   * Method of Certificate Creation: Import
+   * Certificate Name: project1PFX-cert
+   * Upload Certificate File: project1-cert.pfx
+   * Password: (password that was used earlier)
+## Part 6 - Difference between a Self-Signed Certificate 
