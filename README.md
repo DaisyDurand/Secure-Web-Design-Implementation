@@ -80,4 +80,19 @@ Created a self-signed certificate using OpenSSL
    * Certificate Name: project1PFX-cert
    * Upload Certificate File: project1-cert.pfx
    * Password: (password that was used earlier)
-## Part 6 - Difference between a Self-Signed Certificate 
+## Part 6 - Difference between a Self-Signed Certificate and a CA signed Certificate
+
+Self-signed certificates are generated and signed by the entity itself. This means it has not been validated by a trusted third-party Certificate Authority (CA) and diminishes trust from clients. CA-signed certificates undergo a validation process by a trusted CA, e.g. DigiCert. This establishes trust with clients because of the recognition of the CA.
+ ## Part 7 - Create a Front Door Instance
+
+ 1. Front Door Profile:
+    * Front Door: project1-FrontDoor
+    * Endpoint name: project1
+    * Origin group name: RedTeam
+    * Pricing Tier: Premium
+      
+## Part 8: Configuring Custom WAF Rule
+
+
+
+
