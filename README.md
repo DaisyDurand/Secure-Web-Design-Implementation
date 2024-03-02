@@ -5,12 +5,10 @@ This project consists of a custom web application deployed on Microsoft Azure. U
 * Microsoft Azure
 ## Building a Web Application Lab
 ### Part 1 - Creation of The Web App
-1. Create an Azure account.
-2. In the Azure search field search for "App Services"
-3. Select "Create" in the top left had corner.
-4. Under the "Basics" tab select:
-   * Subscription/Resource Group: select the same subrscription and resource group.
-   * Name: This will be the name of the Azure app so choose carefully.
+1. Created an Azure account.
+2. Creating the web app in "App Services":
+   * Subscription/Resource Group: Azure subscription 1/RedTeam
+   * Name: cyberpulseperspectives
    * Publish: Select "Code"
    * Runtime Stack: Select "PHP 8.0"
    * Operating system: Select "Linux"
@@ -50,7 +48,7 @@ Results:
 **Note**: Selected a free Azure domain. Azure provided a trusted certificate for the domain.
 1. Select "Key vaults" from the Azure search field.
 2. Created a key vault:
-   * Subscription/Resource Group: same subscription and resource groups
+   * Subscription/Resource Group: Azure subscription 1/RedTeam
    * Key Vault Name: project1-KeyVault
    * Region:
    * Pricing: Standard
