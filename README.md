@@ -6,7 +6,7 @@ This project consists of a custom web application deployed on Microsoft Azure. U
 ## Environments Used
 * Microsoft Azure
 ## Building a Web Application Lab
-### Part 1 - Creation of The Web App
+### Part 1 - Created The Web App
 
 1. Created an Azure account.
   
@@ -28,17 +28,17 @@ The web app is called "cyberpulseperspectives" and is created within the "RedTea
 5. Select the app. A menu of available options will appear on the left-hand side of the app. Select "Custom domains".
    This is where you will find your unique IP address. A free domain name has been created and the domain is now acessible on the internet.
    
-### Part 2 - This is Where The Container is Deployed on The Web App
+### Part 2 - Deployed The Container on The Web App
 
 **Note**: A Docker container was previously added to Docker Hub.
 
-1. Open Azure cloud Shell.
+1. Opened Azure cloud Shell.
    
 2. Configured the web app with the provided container.
    
 3. The container has been added and the domain is now accessible.
    
-### Part 3 - Designing The Web Application
+### Part 3 - Designed The Web Application
 
 1. SSH'd over to the container and accessed the HTML and CSS files to design the web page.
  
@@ -62,7 +62,7 @@ Results:
 ![P1](https://github.com/DaisyDurand/Secure-Web-Design-Implementation/assets/147094227/a19b5f1f-6da9-43ae-ac91-228add0c20fd)
 ![P1](https://github.com/DaisyDurand/Secure-Web-Design-Implementation/assets/147094227/1b3429a0-010f-474b-8f51-cd54f56e6ed1)
 
-### Part 4 - Create a Key Vault
+### Part 4 - Created a Key Vault
 
 **Note**: Selected a free Azure domain. Azure provided a trusted certificate for the domain.
 
@@ -75,7 +75,7 @@ Results:
    * Region: Australia East
    * Pricing: Standard
      
-3. Click next to the Access Configuration Tab
+3. Next to the Access Configuration Tab
    
    * Vault Access Policy
    * Selected username
@@ -84,7 +84,7 @@ Results:
 
 There are two types of keys, symmetric keys and asymmetric keys. They are both used for encryption, decryption, authentication and digital signatures. Secrets are things like passwords and API keys. Certificates are digital documents used for authenticating a user’s identity. They bind a public key to an entity to validate the authenticity. An access policy is important on a key vault becuase it prevents unauthorized users or user groups from having access to key vault secrets. The username that was selected defined permissions for that specific user.
 
-### Part 5 - Create a Self-Signed Certificate
+### Part 5 - Created a Self-Signed Certificate
 
 Created a self-signed certificate using OpenSSL
 
@@ -120,11 +120,11 @@ Created a self-signed certificate using OpenSSL
    Validity: Oct 31, 2023 to June 27, 2024.
    Intermediate certificate: Microsoft Azure TLS Issuing CA 02
    
-## Part 6 - Difference between a Self-Signed Certificate and a CA signed Certificate
+### Part 6 - Difference between a Self-Signed Certificate and a CA signed Certificate
 
 Self-signed certificates are generated and signed by the entity itself. This means it has not been validated by a trusted third-party Certificate Authority (CA) and diminishes trust from clients. CA-signed certificates undergo a validation process by a trusted CA, e.g. DigiCert. This establishes trust with clients because of the recognition of the CA.
 
- ## Part 7 - Create a Front Door Instance
+### Part 7 - Created a Front Door Instance
 
  1. Front Door Profile:
     * Front Door: project1-FrontDoor
@@ -134,7 +134,7 @@ Self-signed certificates are generated and signed by the entity itself. This mea
       
 ![image](https://github.com/DaisyDurand/Network-Security/assets/147094227/dc53b5ce-af7b-4211-b3af-35c88d52d847)
 
-## Part 8: Configuring Custom WAF Rule
+### Part 8: Configuring Custom WAF Rule
 
 Name: Project1rule
 Priority: 100
@@ -149,6 +149,6 @@ Rule's condition:
 
 ![WAF Custom Rule](https://github.com/DaisyDurand/Network-Security/assets/147094227/1789ec0f-7483-483f-8a66-d9e239e2f957)
 
-## Part 9 : Analyzing and Fixing a Security Center Recommendation
+### Part 9 : Analyzed and Fixed a Security Center Recommendation
 
 The Security Center recommended that "Managed identity should be used in your app". Managed Identity was later enabled  and the necessary permission were granted.
