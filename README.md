@@ -90,9 +90,23 @@ Self-signed certificates are generated and signed by the entity itself. This mea
     * Endpoint name: project1
     * Origin group name: RedTeam
     * Pricing Tier: Premium
-      
+![image](https://github.com/DaisyDurand/Network-Security/assets/147094227/dc53b5ce-af7b-4211-b3af-35c88d52d847)
+
 ## Part 8: Configuring Custom WAF Rule
 
+Name: Project1rule
+Priority: 100
 
+Rule's condition:
 
+Match type: Geo location
+Match variable: Remoteaddr
+Operation: isnot
+Select the three countries (USA, Canada, Australia)
+Then: Deny traffic
 
+![WAF Custom Rule](https://github.com/DaisyDurand/Network-Security/assets/147094227/1789ec0f-7483-483f-8a66-d9e239e2f957)
+
+## Part 9 : Analyzing and Fixing a Security Center Recommendation
+
+The Security Center recommended that "Managed identity should be used in your app". Managed Identity was later enabled  and the necessary permission were granted.
