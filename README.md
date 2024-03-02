@@ -10,20 +10,21 @@ This project consists of a custom web application deployed on Microsoft Azure. U
    * Subscription/Resource Group: Azure subscription 1/RedTeam
    * Name: cyberpulseperspectives
    * Publish: Select "Code"
-   * Runtime Stack: Select "PHP 8.0"
+   * Runtime Stack: Select "PHP 8.2"
    * Operating system: Select "Linux"
-   * Region: Select the same region.
-5. For the App Service Plan:
+   * Region: Australia East
+  
+ The web app is called "cyberpulseperspectives" and is created within the "RedTeam" resource group under "Azure subscription 1". The web app is configured to publish code and uses PHP 8.2 as it's runtime stack. This runs on the backend. It operates on a Linux-based operating system and is hosted in the Australia East region for optimal performance and accessiblity. This setup provides a robust platform for hosting and managing PHP-based web applications securely on the Azure cloud infrastructure.
+  
+3. For the App Service Plan:
    * Under "Pricing Plan", select "Create New" and then enter "project1plan".
    * Select "Basic B1", and then click "Select"
-6. Select the "Review + Create" tab.
-7. Select "Create" at the bottom of the screen to create your web app.
-8. Select "Go to Resource" after the app has been created to find the app.
-9. Select the app. A menu of available options will appear on the left-hand side of the app. Select "Custom domains".
+
+4. Select the app. A menu of available options will appear on the left-hand side of the app. Select "Custom domains".
    This is where you will find your unique IP address. A free domain name has been created and the domain is now acessible on the internet.
 ### Part 2 - This is Where The Container is Deployed on The Web App
 **Note**: A Docker container was previously added to Docker Hub.
-1. Open Azure cloud Shell by clicking on the shell logo in the tool bar. This will be at the top right of the screen.
+1. Open Azure cloud Shell.
 2. Configured the web app with the provided container.
 3. The container has been added and the domain is now accessible.
 ### Part 3 - Designing The Web Application
@@ -50,12 +51,15 @@ Results:
 2. Created a key vault:
    * Subscription/Resource Group: Azure subscription 1/RedTeam
    * Key Vault Name: project1-KeyVault
-   * Region:
+   * Region: Australia East
    * Pricing: Standard
 3. Click next to the Access Configuration Tab
    * Vault Access Policy
-   * Select the box next to username
+   * Selected username
 4. Key vault has been created
+
+There are two types of keys, symmetric keys and asymmetric keys. They are both used for encryption, decryption, authentication and digital signatures. Secrets are things like passwords and API keys. Certificates are digital documents used for authenticating a user’s identity. They bind a public key to an entity to validate the authenticity. An access policy is important on a key vault becuase it prevents unauthorized users or user groups from having access to key vault secrets. The username that was selected defined permissions for that specific user.
+
 ### Part 5 - Create a Self-Signed Certificate
 Created a self-signed certificate using OpenSSL
 1. `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout project1-key.key -out project1-cert.crt -addext "extendedKeyUsage=serverAuth"`  
@@ -78,6 +82,10 @@ Created a self-signed certificate using OpenSSL
    * Certificate Name: project1PFX-cert
    * Upload Certificate File: project1-cert.pfx
    * Password: (password that was used earlier)
+9. SSL Certificate provided by Azure
+   Validity: Oct 31, 2023 to June 27, 2024.
+   Intermediate certificate: Microsoft Azure TLS Issuing CA 02
+   
 ## Part 6 - Difference between a Self-Signed Certificate and a CA signed Certificate
 
 Self-signed certificates are generated and signed by the entity itself. This means it has not been validated by a trusted third-party Certificate Authority (CA) and diminishes trust from clients. CA-signed certificates undergo a validation process by a trusted CA, e.g. DigiCert. This establishes trust with clients because of the recognition of the CA.
